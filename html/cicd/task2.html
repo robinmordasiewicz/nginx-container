@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demonstrate CI/CD NAT44 Policy Update &#8212; CNF 202202152222 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" href="../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Deploy CNF using ArgoCD" href="task3.html" />
+    <link rel="prev" title="Create GIT Repo" href="task1.html" /> 
+  </head><body>
+<!--
+<div id="search-container" class="support-header">
+  <div class="slideable_content">
+    <div class="container">
+      <div id="blue-banner">
+        <span class="search-tips">
+          <a target="_blank" href="" class="internalLink">
+            Search tips
+            <span class="icon-1x-no-position icon-new-window" data-icon="new-window">
+            </span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+
+  <div class="titlebar">
+              <!-- custom breadcrumb -->
+        <div class="breadcrumb">
+            <a href="../index.html" class=breadcrumbanchor>CNF</a>
+              &gt; <a href="index.html" class=breadcrumbanchor>CI/CD with Argo</a> &raquo; <span class="breadcrumbcurrent">Demonstrate CI/CD NAT44 Policy Update</span>
+        </div>
+
+
+        <div class="navigation-container">
+
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="task1.html" title="Create GIT Repo" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="task3.html" title="Deploy CNF using ArgoCD" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+       </div>
+     </div>
+    
+
+        </div>
+        <!-- end custom breadcrumb -->
+      
+  </div>
+
+  <div class="titlebarbackground">
+      
+      
+  </div>
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      
+<div id="searchbox" role="search">
+  <form class="search" action="../search.html" method="get">
+    <input type="text" class="search" name="q" placeholder=" Search..." />
+    <button type="submit" class="btn btn-info navbar-btn"><i class="fa fa-search"></i></button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+      
+
+      <nav class="nav-sidebartoc">
+
+<!--
+        
+        <h5>CNF 202202152222 iTEST</h5>
+        
+        <hr>
+-->
+        <span class="nav-sidebartoc">
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lab-access/index.html">Lab Access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/index.html">Policies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">CI/CD with Argo</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="task1.html">Create GIT Repo</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Demonstrate CI/CD NAT44 Policy Update</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="task3.html">Deploy CNF using ArgoCD</a></li>
+</ul>
+</li>
+</ul>
+
+        </span>
+      </nav>
+    </div>
+
+<!--
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+          <ul>
+<li><a class="reference internal" href="#">Demonstrate CI/CD NAT44 Policy Update</a></li>
+</ul>
+
+        </span>
+      </nav>
+    </div>
+-->
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <!--<button type="button" id="export-pdf" class="btn btn-link right"></button>-->
+
+<!--
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+-->
+
+
+     <div role="main">
+        
+  <div class="section" id="demonstrate-ci-cd-nat44-policy-update">
+<h1>Demonstrate CI/CD NAT44 Policy Update<a class="headerlink" href="#demonstrate-ci-cd-nat44-policy-update" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>Re-configure Subscriber Client (UE) to use only IPv4
+Re-configure Subscriber Client (UE) to use only IPv4 on ens6 traffic interface
+~ubuntu/ipv4-*
+ip -4 a
+dig web1.cnf.local
+curl web1.cnf.local</p>
+<p>At this point, “curl” should fail as there is no CGNAT policy deployed.
+TIP: You can leaving curl running continuously (every 2 seconds) using the watch command.
+watch curl -s <a class="reference external" href="http://web1.cnf.local">http://web1.cnf.local</a></p>
+<dl class="simple">
+<dt>Log into ArgoCD</dt><dd><p>Graphical user interface, application</p>
+</dd>
+</dl>
+<p>Description automatically generated</p>
+<p>Alternatively, Log in via Subscriber Client browser
+GitLab <a class="reference external" href="http://10.1.1.15">http://10.1.1.15</a> root/passw0rd
+ArgoCD <a class="reference external" href="https://10.1.1.7:30422/login">https://10.1.1.7:30422/login</a> admin/passw0rd)</p>
+<p>Configure ArgoCD</p>
+<p>Select + New App</p>
+<p>Graphical user interface, text, application, chat or text message</p>
+<p>Description automatically generated</p>
+<p>Set-up the following ArgoCD Application:</p>
+<p>CGN Policy
+General
+Application Name: cgn-policy
+Project: cgn-policy
+Source
+Repository URL: <a class="reference external" href="https://gitlab.f5.local/root/my-cnf.git">https://gitlab.f5.local/root/my-cnf.git</a>
+Path: cgn-policy
+Destination
+Cluster URL: <a class="reference external" href="https://10.1.1.4:6443">https://10.1.1.4:6443</a>
+Namespace: my-cnf</p>
+<p>The Argo application should deploy but will not be synchronized, as shown below.
+Graphical user interface, text, application, chat or text message</p>
+<p>Description automatically generated
+Click on Sync, then click Synchronize in the new pane that is displayed to synchronise all settings between GitLab and the Kubernetes cluster.
+It should now be possible to connect from the Client to the Web Server.
+Explore the Argo UI. Click on cgn-policy to view the configuration and status.
+Modify NAT44 policy</p>
+<p>In the Jumphost SSH session, edit the NAT44 policy (e.g. using vi), then push this to the Gitlab repository.
+vi ~/my-cnf/cgn-policy/41-natpolicy2-nat44.yaml
+edit the port range to 3500-3600
+A picture containing text</p>
+<p>Description automatically generated</p>
+<p>git add ~/my-cnf/cgn-policy/41-natpolicy2-nat44.yaml
+git commit -m “updated nat44 policy in cli”
+git push origin master</p>
+<p>ArgoCD can operate with either Manual or Automatic synchronisation. We are using manual synchronisation. Within the ArgoCD, synchronise as before and verify (using the Subscriber Client) that the change occurs.</p>
+</div>
+
+
+     </div>
+
+    </article>
+  </div>
+
+</div>
+
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../_static/js/index.js"></script>
+  <script src="../_static/js/jquery.appear.js"></script>
+  <script src="../_static/js/printThis.js"></script>
+  <script src="../_static/js/bootstrap.min.js"></script>
+  <script src="../_static/js/clouddocs.js"></script>
+  <script src="../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>
