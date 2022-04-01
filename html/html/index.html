@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>F5 CNF &#8212; CNF 202202152222 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" href="_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lab Access" href="lab-access/index.html" /> 
+  </head><body>
+<!--
+<div id="search-container" class="support-header">
+  <div class="slideable_content">
+    <div class="container">
+      <div id="blue-banner">
+        <span class="search-tips">
+          <a target="_blank" href="" class="internalLink">
+            Search tips
+            <span class="icon-1x-no-position icon-new-window" data-icon="new-window">
+            </span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+
+  <div class="titlebar">
+              <!-- custom breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">&nbsp;</a>
+        </div>
+
+
+        <div class="navigation-container">
+
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+       
+          <a href="lab-access/index.html" title="Lab Access" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+       </div>
+     </div>
+    
+
+        </div>
+        <!-- end custom breadcrumb -->
+      
+  </div>
+
+  <div class="titlebarbackground">
+      
+      
+  </div>
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      
+<div id="searchbox" role="search">
+  <form class="search" action="search.html" method="get">
+    <input type="text" class="search" name="q" placeholder=" Search..." />
+    <button type="submit" class="btn btn-info navbar-btn"><i class="fa fa-search"></i></button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+      
+
+      <nav class="nav-sidebartoc">
+
+<!--
+        
+        <h5>CNF 202202152222 iTEST</h5>
+        
+        <hr>
+-->
+        <span class="nav-sidebartoc">
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="lab-access/index.html">Lab Access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies/index.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cicd/index.html">CI/CD with Argo</a></li>
+</ul>
+
+        </span>
+      </nav>
+    </div>
+
+<!--
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+          <ul>
+<li><a class="reference internal" href="#">F5 CNF</a></li>
+</ul>
+
+        </span>
+      </nav>
+    </div>
+-->
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <!--<button type="button" id="export-pdf" class="btn btn-link right"></button>-->
+
+<!--
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+-->
+
+
+     <div role="main">
+        
+  <div class="section" id="f5-cnf">
+<h1>F5 CNF<a class="headerlink" href="#f5-cnf" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lab-access/index.html">Lab Access</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deployment/index.html">Deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deployment/namespace.html">Namespace</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment/resources.html">Resources</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment/helm.html">Helm</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment/running-config.html">Running Config</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment/control-plane.html">Control Plane</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="policies/index.html">Policies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="policies/task1.html">View NAT44</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="policies/task2.html">Apply CGN Config</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="policies/task3.html">Update NAT44 Policy</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="policies/task4.html">Control Plane CNF</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="policies/task5.html">Debug</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="policies/task6.html">Demonstrate NAT64</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="policies/task7.html">Cleanup</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="policies/task8.html">Deploy Firewall Policies</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="policies/task9.html">Remove Firewall Policies</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="policies/task10.html">Uninstall HELM Charts</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cicd/index.html">CI/CD with Argo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cicd/task1.html">Create GIT Repo</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cicd/task2.html">Demonstrate CI/CD NAT44 Policy Update</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cicd/task3.html">Deploy CNF using ArgoCD</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sidebar">
+<p class="sidebar-title">Title</p>
+<p class="sidebar-subtitle">Subtitle</p>
+<p>Sidebar TESTING - indented lines comprise
+the body of the sidebar, and are
+interpreted as body elements.</p>
+</div>
+<div class="hero-header-image docutils container">
+<p>F5 Cloud Native Functions</p>
+</div>
+<div class="youtube-hero docutils container">
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/7riGQIJRJgI" style="border: 0; height: 630px; width: 800px">
+</iframe></div></div>
+<div class="hero-header-block docutils container">
+<p>Unleash the power of Kubernetes</p>
+</div>
+<div class="figure align-default" id="id1">
+<div class="mermaid">
+            graph TB
+   subgraph &quot;zoneA&quot;
+       n1(Node1)
+       n2(Node2)
+   end
+   subgraph &quot;zoneB&quot;
+       n3(Node3)
+       n4(Node4)
+   end
+   subgraph &quot;zoneC&quot;
+       n5(Node5)
+       n6(Node6)
+   end
+   classDef plain fill:#ddd,stroke:#fff,stroke-width:4px,color:#000;
+   classDef k8s fill:#0E5C8D,stroke:#fff,stroke-width:4px,color:#fff;
+   classDef cluster fill:#fff,stroke:#bbb,stroke-width:2px,color:#0E5C8D;
+   class n1,n2,n3,n4,n5,n6 k8s;
+   class zoneA,zoneB,zoneC cluster;
+        </div><p class="caption"><span class="caption-text">Figure 5: Pods in Zones</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id2">
+<div class="mermaid">
+            graph LR
+   UE([UE])-. 5G Radio Access .-&gt;ingress[Ingress];
+   ingress--&gt;|routing rule|service[Service];
+   subgraph cluster
+   ingress;
+   service--&gt;pod1[Pod];
+   service--&gt;pod2[Pod];
+   end
+   classDef plain fill:#ddd,stroke:#fff,stroke-width:4px,color:#000;
+   classDef k8s fill:#0E5C8D,stroke:#fff,stroke-width:4px,color:#fff;
+   classDef cluster fill:#fff,stroke:#bbb,stroke-width:2px,color:#0E5C8D;
+   class ingress,service,pod1,pod2 k8s;
+   class UE plain;
+   class cluster cluster;
+        </div><p class="caption"><span class="caption-text">Figure 6: Ingress Controller</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="youtube-sidebar docutils container">
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/7riGQIJRJgI" style="border: 0; height: 165px; width: 295px">
+</iframe></div></div>
+<div class="topic">
+<p class="topic-title first">Your Topic Title</p>
+<p>Subsequent indented lines comprise
+the body of the topic, and are
+interpreted as body elements.</p>
+</div>
+<div class="topic docutils container">
+<p>F5 Cloud Native network functions.</p>
+</div>
+<ol class="arabic">
+<li><p>Blue Items</p>
+<p>The first paragraph in an ordered list would be nice to have a gray background.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">kill</span> -9 <span class="m">86</span>
+</pre></div>
+</div>
+<div class="orderedlistitem docutils container">
+<p>An orderedlistitem helps explain whats going on.</p>
+</div>
+</li>
+<li><p>Red Items</p>
+<p>The first paragraph in an ordered list would be nice to have a gray background.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">kill</span> -9 <span class="m">86</span>
+</pre></div>
+</div>
+<div class="orderedlistitem docutils container">
+<p>An orderedlistitem helps explain whats going on.</p>
+</div>
+</li>
+</ol>
+</div>
+
+
+     </div>
+
+    </article>
+  </div>
+
+</div>
+
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="_static/js/index.js"></script>
+  <script src="_static/js/jquery.appear.js"></script>
+  <script src="_static/js/printThis.js"></script>
+  <script src="_static/js/bootstrap.min.js"></script>
+  <script src="_static/js/clouddocs.js"></script>
+  <script src="_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>
