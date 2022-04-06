@@ -66,7 +66,6 @@ pipeline {
           git branch: 'main', url: 'https://github.com/robinmordasiewicz/argocd.git'
           sh 'sh increment-version.sh'
         }
-        sh 'cp VERSION argocd/VERSION.nginx'
       }
     }
     stage('commit new manifest') {
