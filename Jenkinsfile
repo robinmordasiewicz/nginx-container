@@ -27,13 +27,13 @@ pipeline {
     }
   }
   stages {
-    stage('bump-version') {
-      steps {
-        script {
-          sh "sh increment-version.sh"
-        }
-      }
-    }
+//    stage('bump-version') {
+//      steps {
+//        script {
+//          sh "sh increment-version.sh"
+//        }
+//      }
+//    }
     stage('nginx-container-build') {
       steps {
         container(name: 'kaniko', shell: '/busybox/sh') {
@@ -48,17 +48,17 @@ pipeline {
         }
       }
     }
-    stage('git-commit') {
-      steps {
-        sh 'git config user.email "robin@mordasiewicz.com"'
-        sh 'git config user.name "Robin Mordasiewicz"'
-        sh 'git add .'
-        sh 'git commit -m "`cat VERSION`"'
-        withCredentials([gitUsernamePassword(credentialsId: 'github-pat', gitToolName: 'git')]) {
-          sh '/usr/bin/git push origin main'
-        }
-      }
-    }
+//    stage('git-commit') {
+//      steps {
+//        sh 'git config user.email "robin@mordasiewicz.com"'
+//        sh 'git config user.name "Robin Mordasiewicz"'
+//        sh 'git add .'
+//        sh 'git commit -m "`cat VERSION`"'
+//        withCredentials([gitUsernamePassword(credentialsId: 'github-pat', gitToolName: 'git')]) {
+//          sh '/usr/bin/git push origin main'
+//        }
+//      }
+//    }
     stage('create new manifest') {
       steps {
         sh 'mkdir argocd'
