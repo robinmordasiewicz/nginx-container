@@ -61,10 +61,10 @@ pipeline {
     }
     stage('create new manifest') {
       steps {
-        sh 'mkdir -p argocd'
+        sh 'mkdir argocd'
         dir ( 'argocd' ) {
           git branch: 'main', url: 'https://github.com/robinmordasiewicz/argocd.git'
-          sh 'sh increment-version.sh'
+          sh 'sh increment-nginx-version.sh'
         }
       }
     }
