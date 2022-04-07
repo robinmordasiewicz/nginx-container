@@ -32,8 +32,8 @@ pipeline {
         container(name: 'kaniko', shell: '/busybox/sh') {
           script {
             sh '''
-            /kaniko/executor --dockerfile `pwd`/Dockerfile \
-                             --context `pwd` \
+            /kaniko/executor --dockerfile=Dockerfile \
+                             --context=git://github.com/robinmordasiewicz/nginx-container.git \
                              --destination=robinhoodis/nginx:`cat VERSION` \
                              --destination=robinhoodis/nginx:latest
             '''
