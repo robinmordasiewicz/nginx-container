@@ -30,16 +30,15 @@ pipeline {
     }
   }
   stages {
-    stage('nginx-container-build') {
+    stage('Push Container') {
       steps {
         container(name: 'kaniko', shell: '/busybox/sh') {
           script {
             sh '''
             /kaniko/executor --dockerfile=Dockerfile \
-                             --context=git://github.com/robinmordasiewicz/nginx-container.git \
+                             --context=git://github.com/robinmordasiewicz/nginx.git \
                              --destination=robinhoodis/nginx:`cat VERSION` \
-                             --destination=robinhoodis/nginx:latest \
-                             --skip-tls-verify
+                             --destination=robinhoodis/nginx:latest
             '''
           }
         }
