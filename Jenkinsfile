@@ -38,7 +38,8 @@ pipeline {
             /kaniko/executor --dockerfile=Dockerfile \
                              --context=git://github.com/robinmordasiewicz/nginx.git \
                              --destination=robinhoodis/nginx:`cat VERSION` \
-                             --destination=robinhoodis/nginx:latest
+                             --destination=robinhoodis/nginx:latest \
+                             --cache=true
             '''
           }
         }
