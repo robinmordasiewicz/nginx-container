@@ -30,7 +30,13 @@ pipeline {
     }
   }
   stages {
-    stage('Push Container') {
+    stage('check to see if the container exists') {
+      steps {
+      
+      
+      }
+    }
+    stage('create and publish container') {
       steps {
         container(name: 'kaniko', shell: '/busybox/sh') {
           script {
@@ -62,7 +68,7 @@ pipeline {
           sh 'git add .'
           sh 'git diff --quiet && git diff --staged --quiet || git commit -am "NGINX Manifest `cat nginx/VERSION`"'
           withCredentials([gitUsernamePassword(credentialsId: 'github-pat', gitToolName: 'git')]) {
-            sh 'git diff --quiet && git diff --staged --quiet || git push'
+            sh 'git diff --quiet && git diff --staged --quiet || git push origin main'
           }
         }
       }
