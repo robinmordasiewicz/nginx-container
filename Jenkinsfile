@@ -5,6 +5,7 @@ pipeline {
   }
   triggers {
     upstream "make-html"
+    hudson.model.Result.SUCCESS
   }
   agent {
     kubernetes {
