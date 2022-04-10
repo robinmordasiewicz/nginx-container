@@ -4,7 +4,7 @@ pipeline {
     skipDefaultCheckout(true)
   }
   triggers {  
-    upstream(upstreamProjects: "make-html", threshold: hudson.model.Result.SUCCESS)
+    upstream(upstreamProjects: "docs", threshold: hudson.model.Result.SUCCESS)
   }
   agent {
     kubernetes {
