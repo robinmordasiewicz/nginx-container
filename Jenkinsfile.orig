@@ -1,7 +1,6 @@
 pipeline {
   options {
     disableConcurrentBuilds()
-    skipDefaultCheckout(true)
   }
   agent {
     kubernetes {
@@ -10,12 +9,6 @@ pipeline {
         kind: Pod
         spec:
           containers:
-          - name: ubuntu
-            image: robinhoodis/ubuntu:latest
-            imagePullPolicy: Always
-            command:
-            - cat
-            tty: true
           - name: kaniko
             image: gcr.io/kaniko-project/executor:debug
             imagePullPolicy: IfNotPresent
@@ -37,48 +30,17 @@ pipeline {
     }
   }
   stages {
-    stage('INIT') {
+    stage('check to see if the container exists') {
       steps {
-        cleanWs()
-        checkout scm
-        echo "Building ${env.JOB_NAME}..."
+      
+      
       }
     }
-    stage('Dockerfile change') {
-      when {
-        changeset "Dockerfile"
-      }
-      steps {
-        container('ubuntu') {
-          sh 'sh increment-version.sh'
-        }
-        sh 'git config user.email "robin@mordasiewicz.com"'
-        sh 'git config user.name "Robin Mordasiewicz"'
-        // sh 'git add -u'
-        // sh 'git diff --quiet && git diff --staged --quiet || git commit -m "`cat VERSION`"'
-        sh 'git add . && git diff --staged --quiet || git commit -m "`cat VERSION`"'
-        withCredentials([gitUsernamePassword(credentialsId: 'github-pat', gitToolName: 'git')]) {
-          // sh 'git diff --quiet && git diff --staged --quiet || git push origin HEAD:main'
-          // sh 'git diff --quiet HEAD || git push origin HEAD:main'
-          sh 'git push origin HEAD:main'
-        }
-      }
-    }
-    stage('Check repo for container') {
-      when { changeset "VERSION"}
-      steps {
-        container('ubuntu') {
-          sh 'skopeo inspect docker://docker.io/robinhoodis/nginx:`cat VERSION` > /dev/null || echo "create new container: `cat VERSION`" > BUILDNEWCONTAINER.txt'
-        }
-      }
-    }
-    stage('Build/Push Container') {
-      when { changeset "VERSION"}
+    stage('create and publish container') {
       steps {
         container(name: 'kaniko', shell: '/busybox/sh') {
           script {
-            sh ''' 
-            [ ! -f BUILDNEWCONTAINER.txt ] || \
+            sh '''
             /kaniko/executor --dockerfile=Dockerfile \
                              --context=git://github.com/robinmordasiewicz/nginx.git \
                              --destination=robinhoodis/nginx:`cat VERSION` \
@@ -90,7 +52,6 @@ pipeline {
       }
     }
     stage('create new manifest') {
-      when { changeset "VERSION"}
       steps {
         sh 'mkdir argocd'
         dir ( 'argocd' ) {
@@ -100,7 +61,6 @@ pipeline {
       }
     }
     stage('commit new manifest') {
-      when { changeset "VERSION"}
       steps {
         dir ( 'argocd' ) {
           sh 'git config user.email "robin@mordasiewicz.com"'
@@ -113,15 +73,20 @@ pipeline {
         }
       }
     }
-  }
-  post {
-    always {
-      cleanWs(cleanWhenNotBuilt: false,
-            deleteDirs: true,
-            disableDeferredWipeout: true,
-            notFailBuild: true,
-            patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
-                       [pattern: '.propsfile', type: 'EXCLUDE']])
+    stage('clean up') {
+      steps {
+        sh 'rm -rf argocd'
+      }
     }
   }
+//  post {
+//    always {
+//      cleanWs(cleanWhenNotBuilt: false,
+//            deleteDirs: true,
+//            disableDeferredWipeout: true,
+//            notFailBuild: true,
+//            patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+//                     [pattern: '.propsfile', type: 'EXCLUDE']])
+//    }
+//  }
 }
