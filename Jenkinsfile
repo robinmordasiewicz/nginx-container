@@ -103,6 +103,7 @@ pipeline {
       when {
         beforeAgent true
         anyOf {
+          changeset "VERSION"
           changeset "Dockerfile"
           triggeredBy cause: 'UserIdCause'
         }
