@@ -3,9 +3,8 @@ pipeline {
     disableConcurrentBuilds()
     skipDefaultCheckout(true)
   }
-  triggers {
-    upstream "make-html"
-    hudson.model.Result.SUCCESS
+  triggers {  
+    upstream(upstreamProjects: "make-html", threshold: hudson.model.Result.SUCCESS)
   }
   agent {
     kubernetes {
