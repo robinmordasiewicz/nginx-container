@@ -1,5 +1,32 @@
 <!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Search</title>
+  
 
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Search"/>
+  <meta name="product" content="Docs"/>
+  <meta name="version" content="202202152222"/>
+  <meta name="updated_date"  content="None"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="Docs" content="202202152222"/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
 <!DOCTYPE html>
 
 <html>
@@ -10,10 +37,10 @@
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" href="_static/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="_static/css/f5.css" type="text/css" />
-    <link rel="stylesheet" href="_static/css/f5-theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/CoveoFullSearch.css" type="text/css" />
     <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
     
@@ -34,91 +61,70 @@
    
 
   </head><body>
-<!--
-<div id="search-container" class="support-header">
-  <div class="slideable_content">
-    <div class="container">
-      <div id="blue-banner">
-        <span class="search-tips">
-          <a target="_blank" href="" class="internalLink">
-            Search tips
-            <span class="icon-1x-no-position icon-new-window" data-icon="new-window">
-            </span>
-          </a>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
--->
+  <div id="clouddocs-header"></div>
 
-
-  <div class="titlebar">
-              <!-- custom breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html" class=breadcrumbanchor>Docs</a>
-        </div>
-
-
-        <div class="navigation-container">
-
-    
-
-        </div>
-        <!-- end custom breadcrumb -->
-      
-  </div>
-
-  <div class="titlebarbackground">
-      
-      
-  </div>
     <div id="sidebar" class="section-nav">
+      <!-- javascript code to maintain the sidebar scroll positon when loaded -->
+      <script type="text/javascript">
+        $(function() {
+          if (localStorage.tempScrollTop) {
+            $('#sidebar').scrollTop(localStorage.tempScrollTop);
+          }
+        });
+        $('#sidebar').on("scroll", function() {
+          localStorage.setItem("tempScrollTop", $('#sidebar').scrollTop());
+        });
+      </script>
       
       <!--  version selector ------------------>
       <div id="version_selector_wrapper">
       </div>
-  <form action="" method="get">
-    <input type="text" name="q" aria-labelledby="search-documentation" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-    <input type="submit" value="search" />
-    <span id="search-progress" style="padding-left: 10px"></span>
-  </form>
-  
-
       <nav class="nav-sidebartoc">
 
-<!--
         
-        <h5>Docs 202202152222 iTEST</h5>
+        <h5>Docs 202202152222 </h5>
         
         <hr>
--->
         <span class="nav-sidebartoc">
             
-        </span>
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
       </nav>
     </div>
 
-<!--
+
     <div id="right-sidebar">
-      <h7 style="font-weight:normal">On this page</h7>
+      <h7 style="font-weight:normal">On this page:</h7>
       <nav class="nav-sidebartoc">
         <span class="nav-sidebartoc">
-          
-        </span>
+            
+         </span>
       </nav>
     </div>
--->
+
+
+
+
 
   
   <div class="main active" id="content" >
     <article class="docs-container site-article-inner">
+            <nav class="site-breadcrumb-nav site-nav">
+          <ul class="site-breadcrumb-list">
+            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">Docs</a> &gt; <a href="index.html">Docs </a> &gt; Search</li>
+          </ul>
+      </nav>
+      
+      
 
 
     <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
-    <!--<button type="button" id="export-pdf" class="btn btn-link right"></button>-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
 
-<!--
+
     
      
          <div class="sidebar" id="version-warning" style="display: none;">
@@ -126,7 +132,6 @@
            <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
            <p class="last" id="currentVersion"></p>
           </div>
--->
 
 
      <div role="main">
@@ -163,6 +168,7 @@
   
 
      </div>
+    
 
     </article>
   </div>
@@ -170,6 +176,7 @@
 </div>
 
 
+  <div id="clouddocs-footer"></div>
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
@@ -177,8 +184,8 @@
   <script src="_static/js/index.js"></script>
   <script src="_static/js/jquery.appear.js"></script>
   <script src="_static/js/printThis.js"></script>
-  <script src="_static/js/bootstrap.min.js"></script>
-  <script src="_static/js/clouddocs.js"></script>
-  <script src="_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/clouddocs.js"></script>
+  <script src="/assets/js/CoveoJsSearch.Lazy.min.js"></script>
   </body>
 </html>

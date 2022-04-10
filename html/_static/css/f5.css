@@ -1164,7 +1164,7 @@ span.a-mm-h {
   display: block;
   line-height: 16px;
   padding-bottom: 4px;
-  margin: 10px 0 5px 0;
+  margin: 4px 0 10px 0;
   float: left;
 }
 #upc-search {
@@ -4706,7 +4706,7 @@ media styles
 @media (min-width: 1001px) {
   .sidebar-toggle,
   .sidebar {
-/*    display: none; */
+    display: none;
   }
   .archived input {
     margin: 0 4px 0 -14px;
@@ -5553,17 +5553,15 @@ a.no-decoration:active {
     src: url(/assets/fonts/ProximaThin.woff2) format('woff2'), url(/assets/fonts/ProximaThin.woff) format('woff')
 }
 
-/*
 body {
     font-family: Proxima,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-/*    font-size: 14px; */
-/*    font-weight: 400; */
+    font-size: 16px;
+    font-weight: 400;
     line-height: 1.375;
-/*    color: #4D4F53; */
-/*    background-color: #E0E0E0; */
+    color: #4D4F53;
+    background-color: #FFF;
     position: relative
 }
-*/
 
 /* Start of Coveo search bar in header */
 
@@ -5667,11 +5665,6 @@ body {
     border-radius: 2px;
 }
 
-.magic-box .magic-box-clear {
-  height: 38px !important;
-  line-height: 38px !important;
-}
-
 #search-container .search-tips {
   display: block;
   position: absolute;
@@ -5699,5 +5692,3 @@ body {
 }
 
 /* End of Coveo search bar in header */
-
-
