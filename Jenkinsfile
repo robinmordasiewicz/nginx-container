@@ -3,6 +3,9 @@ pipeline {
     disableConcurrentBuilds()
     skipDefaultCheckout(true)
   }
+  triggers {
+    upstream "make-html"
+  }
   agent {
     kubernetes {
       yaml '''
