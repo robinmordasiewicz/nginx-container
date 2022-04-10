@@ -99,7 +99,7 @@ pipeline {
         }
       }
     }
-    stage('commit new VERSSION') {
+    stage('commit new VERSION') {
       when {
         beforeAgent true
         anyOf {
