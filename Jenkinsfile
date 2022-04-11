@@ -41,6 +41,7 @@ pipeline {
   }
   stages {
     stage('INIT') {
+      when { triggeredBy 'BuildUpstreamCause' }
       steps {
         cleanWs()
         checkout scm
