@@ -46,6 +46,15 @@ pipeline {
         checkout scm
       }
     }
+    stage('find-upstream') {
+      steps {
+        script {
+          currentBuild.upstreamBuilds?.each{ b ->
+            echo "Triggered by upstream project: ${b.getFullDisplayName()}"
+          }  
+        }
+      }
+    }
     stage('Increment VERSION') {
       when {
         beforeAgent true
