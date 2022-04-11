@@ -50,7 +50,7 @@ pipeline {
       when {
         beforeAgent true
         anyOf {
-          triggeredBy cause: 'upstreamBuilds'
+          triggeredBy cause: 'UpstreamCause'
         }
       }
       steps {
