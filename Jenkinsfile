@@ -67,6 +67,7 @@ pipeline {
           changeset "VERSION"
           changeset "Dockerfile"
           triggeredBy cause: 'UserIdCause'
+          triggeredBy cause: 'UpstreamCause'
         }
       }
       steps {
