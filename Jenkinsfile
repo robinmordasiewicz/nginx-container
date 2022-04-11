@@ -47,6 +47,12 @@ pipeline {
       }
     }
     stage('find-upstream') {
+      when {
+        beforeAgent true
+        anyOf {
+          triggeredBy cause: 'upstreamBuilds'
+        }
+      }
       steps {
         script {
           currentBuild.upstreamBuilds?.each{ b ->
