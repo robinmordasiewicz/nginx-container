@@ -50,7 +50,7 @@ pipeline {
       steps {
         script {
           currentBuild.upstreamBuilds?.each{ b ->
-            echo "Triggered by upstream project: ${b.getFullDisplayName()} b{.getFullProjectName()}"
+            echo "Triggered by upstream project: ${b.getFullDisplayName()} $b{.getFullProjectName()}"
           }  
         }
       }
@@ -62,6 +62,7 @@ pipeline {
           changeset "Dockerfile"
           triggeredBy cause: 'UserIdCause'
           triggeredBy cause: 'UpstreamCause'
+          triggeredBy cause: 'upstreamBuilds'
         }
       }
       steps {
