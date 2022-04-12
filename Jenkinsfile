@@ -67,6 +67,7 @@ pipeline {
           }
           allOf {
             not {changeset "Jenkinsfile"}
+            not {changeset "increment-version.sh"}
           }
           triggeredBy cause: 'UserIdCause'
         }
