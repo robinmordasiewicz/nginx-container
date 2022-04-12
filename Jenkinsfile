@@ -54,6 +54,10 @@ pipeline {
             not {changeset "VERSION"}
             changeset "Dockerfile"
           }
+          allOf {
+            not {changeset "VERSION"}
+            changeset "html/**"
+          }
           triggeredBy cause: 'UserIdCause'
         }
       }
