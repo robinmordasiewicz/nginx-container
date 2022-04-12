@@ -54,20 +54,23 @@ pipeline {
       }
     }
     stage('Increment VERSION') {
-//      when {
-//        beforeAgent true
-//        anyOf {
-//          allOf {
-//            not {changeset "VERSION"}
-//            changeset "Dockerfile"
-//          }
-//          allOf {
-//            not {changeset "VERSION"}
-//            changeset "html/**"
-//          }
-//          triggeredBy cause: 'UserIdCause'
-//        }
-//      }
+      when {
+        beforeAgent true
+        anyOf {
+          allOf {
+            not {changeset "VERSION"}
+            changeset "Dockerfile"
+          }
+          allOf {
+            not {changeset "VERSION"}
+            changeset "html/**"
+          }
+          allOf {
+            not {changeset "Jenkinsfile"}
+          }
+          triggeredBy cause: 'UserIdCause'
+        }
+      }
       steps {
         container('ubuntu') {
           sh 'sh increment-version.sh'
@@ -109,20 +112,20 @@ pipeline {
       }
     }
     stage('Commit new VERSION') {
-      when {
-        beforeAgent true
-        anyOf {
-          allOf {
-            not {changeset "VERSION"}
-            changeset "Dockerfile"
-          }
-          allOf {
-            not {changeset "VERSION"}
-            changeset "html/**"
-          }
-          triggeredBy cause: 'UserIdCause'
-        }
-      }
+//      when {
+//        beforeAgent true
+//        anyOf {
+//          allOf {
+//            not {changeset "VERSION"}
+//            changeset "Dockerfile"
+//          }
+//          allOf {
+//            not {changeset "VERSION"}
+//            changeset "html/**"
+//          }
+//          triggeredBy cause: 'UserIdCause'
+//        }
+//      }
 //      when {
 //        beforeAgent true
 //        anyOf {
