@@ -66,6 +66,9 @@ pipeline {
             changeset "html/**"
           }
           triggeredBy cause: 'UserIdCause'
+          expression {
+            sh(returnStatus: true, script: 'echo ${currentBuild.getBuildCauses('com.cloudbees.jenkins.GitHubPushCause').size()}') == 1
+          }
         }
       }
       steps {
