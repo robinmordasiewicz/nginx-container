@@ -157,6 +157,24 @@ pipeline {
 //      }
 
     stage('Commit new VERSION') {
+      when {
+        beforeAgent true
+        anyOf {
+          allOf {
+            not {changeset "VERSION"}
+            changeset "Dockerfile"
+          }
+          allOf {
+            not {changeset "VERSION"}
+            changeset "html/**"
+          }
+          allOf {
+            not {changeset "Jenkinsfile"}
+            not {changeset "increment-version.sh"}
+          }
+          triggeredBy cause: 'UserIdCause'
+        }
+      }
       steps {
         sh 'git status'
         sh 'git config user.email "nginx@example.com"'
