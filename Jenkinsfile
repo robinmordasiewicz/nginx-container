@@ -172,7 +172,7 @@ pipeline {
             not {changeset "Jenkinsfile"}
             not {changeset "increment-version.sh"}
           }
-          triggeredBy cause: 'UserIdCause'
+          // triggeredBy cause: 'UserIdCause'
         }
       }
       steps {
