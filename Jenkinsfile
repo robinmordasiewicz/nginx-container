@@ -90,6 +90,7 @@ pipeline {
           anyOf {
             changeset "Dockerfile"
             changeset "html/*"
+            changeset "html/**"
             // changeset "Jenkinsfile"
             // changeset "increment-version.sh"
           }
@@ -99,9 +100,7 @@ pipeline {
       }
       steps {
         container('ubuntu') {
-          sh 'cat VERSION'
           sh 'sh increment-version.sh'
-          sh 'cat VERSION'
         }
       }
     }
@@ -130,7 +129,7 @@ pipeline {
             sh ''' 
             [ ! -f BUILDNEWCONTAINER.txt ] || \
             /kaniko/executor --dockerfile=Dockerfile \
-                             --context=git://github.com/robinmordasiewicz/nginx.git \
+                             --context=`pwd` \
                              --destination=robinhoodis/nginx:`cat VERSION` \
                              --destination=robinhoodis/nginx:latest \
                              --cache=true
@@ -188,6 +187,7 @@ pipeline {
           anyOf {
             changeset "Dockerfile"
             changeset "html/*"
+            changeset "html/**"
             // changeset "Jenkinsfile"
             // changeset "increment-version.sh"
           }
@@ -196,12 +196,9 @@ pipeline {
         }
       }
       steps {
-        sh 'git status'
         sh 'git config user.email "nginx@example.com"'
         sh 'git config user.name "nginx pipeline"'
         sh 'git add VERSION'
-        sh 'cat VERSION'
-        sh 'git status'
         sh 'git commit -m "`cat VERSION`"'
         // sh 'git add VERSION && git diff --quiet && git diff --staged --quiet || git commit -m "`cat VERSION`"'
         // sh 'git tag -a `cat VERSION` -m "`cat VERSION`" || echo "Tag: `cat VERSION` already exists"'
