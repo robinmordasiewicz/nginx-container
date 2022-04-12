@@ -54,23 +54,20 @@ pipeline {
       }
     }
     stage('Increment VERSION') {
-      when {
-        beforeAgent true
-        anyOf {
-          allOf {
-            not {changeset "VERSION"}
-            changeset "Dockerfile"
-          }
-          allOf {
-            not {changeset "VERSION"}
-            changeset "html/**"
-          }
-          triggeredBy cause: 'UserIdCause'
-          expression {
-            sh(returnStatus: true, script: 'echo ${currentBuild.getBuildCauses('com.cloudbees.jenkins.GitHubPushCause').size()}') == 1
-          }
-        }
-      }
+//      when {
+//        beforeAgent true
+//        anyOf {
+//          allOf {
+//            not {changeset "VERSION"}
+//            changeset "Dockerfile"
+//          }
+//          allOf {
+//            not {changeset "VERSION"}
+//            changeset "html/**"
+//          }
+//          triggeredBy cause: 'UserIdCause'
+//        }
+//      }
       steps {
         container('ubuntu') {
           sh 'sh increment-version.sh'
