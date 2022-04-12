@@ -150,7 +150,8 @@ pipeline {
           sh 'git add .'
           sh 'git diff --quiet && git diff --staged --quiet || git commit -am "NGINX Manifest `cat nginx/VERSION`"'
           withCredentials([gitUsernamePassword(credentialsId: 'github-pat', gitToolName: 'git')]) {
-            sh 'git diff --quiet && git diff --staged --quiet || git push origin main'
+            // sh 'git diff --quiet && git diff --staged --quiet || git push origin main'
+            sh 'git push origin main'
           }
         }
       }
