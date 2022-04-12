@@ -113,6 +113,20 @@ pipeline {
         }
       }
     }
+    stage('clean up build file' {
+      when {
+        beforeAgent true
+        anyOf {
+          expression {
+            sh(returnStatus: true, script: '[ -f BUILDNEWCONTAINER.txt ]') == 0
+          }
+        }
+      }
+      steps {
+        sh '[ -f BUILDNEWCONTAINER.txt ] && rm BUILDNEWCONTAINER.txt'
+      }
+    }
+
     stage('Commit new VERSION') {
 //      when {
 //        beforeAgent true
