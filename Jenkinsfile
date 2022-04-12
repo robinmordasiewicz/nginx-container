@@ -53,16 +53,30 @@ pipeline {
         echo "isTriggeredByTimer = ${currentBuild.getBuildCauses('hudson.triggers.TimerTrigger$TimerTriggerCause').size()}"
       }
     }
+    stage('whats in the changeset'){
+      when {
+        beforeAgent true
+        anyOf {
+          allOf {
+            changeset "VERSION"
+          }
+          // triggeredBy cause: 'UserIdCause'
+        }
+      }
+      steps {
+        sh 'echo "--------------------------------"'
+      }
+    }
     stage('Increment VERSION') {
       when {
         beforeAgent true
         anyOf {
           allOf {
-            not {changeset "VERSION"}
+            not { changeset "VERSION" }
             changeset "Dockerfile"
           }
           allOf {
-            not {changeset "VERSION"}
+            not { changeset "VERSION" }
             changeset "html/**"
           }
           allOf {
