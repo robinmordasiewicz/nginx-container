@@ -91,6 +91,7 @@ pipeline {
             not {changeset "Jenkinsfile"}
             not {changeset "increment-version.sh"}
           }
+          not { changeset "VERSION" }
           // triggeredBy cause: 'UserIdCause'
         }
       }
@@ -181,7 +182,7 @@ pipeline {
     stage('Commit new VERSION') {
       when {
         beforeAgent true
-        anyOf {
+        allOf {
           allOf {
             not {changeset "VERSION"}
             changeset "Dockerfile"
@@ -195,6 +196,7 @@ pipeline {
             not {changeset "increment-version.sh"}
           }
           // triggeredBy cause: 'UserIdCause'
+          not { changeset "VERSION" }
         }
       }
       steps {
