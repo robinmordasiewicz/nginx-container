@@ -3,9 +3,6 @@ pipeline {
     disableConcurrentBuilds()
     skipDefaultCheckout(true)
   }
-//  triggers {  
-//    upstream(upstreamProjects: "docs", threshold: hudson.model.Result.SUCCESS)
-//  }
   agent {
     kubernetes {
       yaml '''
@@ -51,6 +48,28 @@ pipeline {
         echo "isTriggeredByCommit = ${currentBuild.getBuildCauses('com.cloudbees.jenkins.GitHubPushCause').size()}"
         echo "isTriggeredByUser = ${currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause').size()}"
         echo "isTriggeredByTimer = ${currentBuild.getBuildCauses('hudson.triggers.TimerTrigger$TimerTriggerCause').size()}"
+      }
+    }
+    stage('html in changeset 1'){
+      when {
+        beforeAgent true
+        anyOf {
+          not { changeset "html/**" }
+        }
+      }
+      steps {
+        sh 'echo "------------- html NOT in the changeset -------------------"'
+      }
+    }
+    stage('html changeset 2'){
+      when {
+        beforeAgent true
+        anyOf {
+          changeset "html/**"
+        }
+      }
+      steps {
+        sh 'echo "------------- html in the changeset -------------------"'
       }
     }
     stage('Jenkinsfile check changeset 1'){
