@@ -73,7 +73,9 @@ pipeline {
       }
       steps {
         container('ubuntu') {
+          sh 'cat VERSION'
           sh 'sh increment-version.sh'
+          sh 'cat VERSION'
         }
       }
     }
@@ -144,6 +146,7 @@ pipeline {
         sh 'git config user.email "robin@mordasiewicz.com"'
         sh 'git config user.name "Robin Mordasiewicz"'
         sh 'git add VERSION'
+        sh 'cat VERSION'
         sh 'git status'
         sh 'git commit -m "`cat VERSION`"'
         // sh 'git add VERSION && git diff --quiet && git diff --staged --quiet || git commit -m "`cat VERSION`"'
