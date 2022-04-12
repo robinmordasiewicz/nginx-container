@@ -127,7 +127,6 @@ pipeline {
       }
     }
 
-    stage('Commit new VERSION') {
 //      when {
 //        beforeAgent true
 //        anyOf {
@@ -155,6 +154,8 @@ pipeline {
 //          }
 //        }
 //      }
+
+    stage('Commit new VERSION') {
       steps {
         sh 'git status'
         sh 'git config user.email "robin@mordasiewicz.com"'
