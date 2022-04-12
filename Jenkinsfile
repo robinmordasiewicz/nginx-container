@@ -53,6 +53,28 @@ pipeline {
         echo "isTriggeredByTimer = ${currentBuild.getBuildCauses('hudson.triggers.TimerTrigger$TimerTriggerCause').size()}"
       }
     }
+    stage('Jenkinsfile check changeset 1'){
+      when {
+        beforeAgent true
+        anyOf {
+          not { changeset "Jenkinsfile" }
+        }
+      }
+      steps {
+        sh 'echo "------------- Jenkinsfile NOT in the changeset -------------------"'
+      }
+    }
+    stage('Jenkinsfile check changeset 2'){
+      when {
+        beforeAgent true
+        anyOf {
+          changeset "Jenkinsfile"
+        }
+      }
+      steps {
+        sh 'echo "------------- Jenkinsfile in the changeset -------------------"'
+      }
+    }
     stage('VERSION check changeset 1'){
       when {
         beforeAgent true
@@ -88,10 +110,11 @@ pipeline {
             changeset "html/**"
           }
           allOf {
-            not {changeset "Jenkinsfile"}
-            not {changeset "increment-version.sh"}
+            not { changeset "Jenkinsfile" }
+            not { changeset "increment-version.sh" }
           }
           not { changeset "VERSION" }
+          not { changeset "Jenkinsfile" }
           // triggeredBy cause: 'UserIdCause'
         }
       }
@@ -196,6 +219,7 @@ pipeline {
             not {changeset "increment-version.sh"}
           }
           // triggeredBy cause: 'UserIdCause'
+          not { changeset "Jenkinsfile" }
           not { changeset "VERSION" }
         }
       }
