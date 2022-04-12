@@ -122,6 +122,28 @@ pipeline {
         }
       }
     }
+    stage('create new manifest') {
+      steps {
+        sh 'mkdir argocd'
+        dir ( 'argocd' ) {
+          git branch: 'main', url: 'https://github.com/robinmordasiewicz/argocd.git'
+          sh 'sh increment-nginx-version.sh'
+        }
+      }
+    }
+    stage('commit new manifest') {
+      steps {
+        dir ( 'argocd' ) {
+          sh 'git config user.email "robin@mordasiewicz.com"'
+          sh 'git config user.name "Robin Mordasiewicz"'
+          sh 'git add .'
+          sh 'git diff --quiet && git diff --staged --quiet || git commit -am "NGINX Manifest `cat nginx/VERSION`"'
+          withCredentials([gitUsernamePassword(credentialsId: 'github-pat', gitToolName: 'git')]) {
+            sh 'git diff --quiet && git diff --staged --quiet || git push origin main'
+          }
+        }
+      }
+    }
   }
   post {
     always {
