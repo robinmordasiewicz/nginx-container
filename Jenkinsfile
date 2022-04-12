@@ -159,8 +159,8 @@ pipeline {
     stage('Commit new VERSION') {
       steps {
         sh 'git status'
-        sh 'git config user.email "robin@mordasiewicz.com"'
-        sh 'git config user.name "Robin Mordasiewicz"'
+        sh 'git config user.email "nginx@example.com"'
+        sh 'git config user.name "nginx pipeline"'
         sh 'git add VERSION'
         sh 'cat VERSION'
         sh 'git status'
