@@ -120,20 +120,13 @@ pipeline {
       when {
         beforeAgent true
         allOf {
-          allOf {
-            not { changeset "VERSION" }
+          anyOf {
             changeset "Dockerfile"
-          }
-          allOf {
-            not { changeset "VERSION" }
-            changeset "html/**"
-          }
-          allOf {
-            not { changeset "Jenkinsfile" }
-            not { changeset "increment-version.sh" }
+            changeset "html/*"
+            // changeset "Jenkinsfile"
+            // changeset "increment-version.sh"
           }
           not { changeset "VERSION" }
-          not { changeset "Jenkinsfile" }
           // triggeredBy cause: 'UserIdCause'
         }
       }
@@ -225,21 +218,14 @@ pipeline {
       when {
         beforeAgent true
         allOf {
-          allOf {
-            not {changeset "VERSION"}
+          anyOf {
             changeset "Dockerfile"
+            changeset "html/*"
+            // changeset "Jenkinsfile"
+            // changeset "increment-version.sh"
           }
-          allOf {
-            not {changeset "VERSION"}
-            changeset "html/**"
-          }
-          allOf {
-            not {changeset "Jenkinsfile"}
-            not {changeset "increment-version.sh"}
-          }
-          // triggeredBy cause: 'UserIdCause'
-          not { changeset "Jenkinsfile" }
           not { changeset "VERSION" }
+          // triggeredBy cause: 'UserIdCause'
         }
       }
       steps {
