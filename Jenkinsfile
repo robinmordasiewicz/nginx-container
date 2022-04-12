@@ -56,7 +56,7 @@ pipeline {
     stage('Increment VERSION') {
       when {
         beforeAgent true
-        allOf {
+        anyOf {
           allOf {
             not {changeset "VERSION"}
             changeset "Dockerfile"
