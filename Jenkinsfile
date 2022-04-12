@@ -3,9 +3,9 @@ pipeline {
     disableConcurrentBuilds()
     skipDefaultCheckout(true)
   }
-  triggers {  
-    upstream(upstreamProjects: "docs", threshold: hudson.model.Result.SUCCESS)
-  }
+//  triggers {  
+//    upstream(upstreamProjects: "docs", threshold: hudson.model.Result.SUCCESS)
+//  }
   agent {
     kubernetes {
       yaml '''
