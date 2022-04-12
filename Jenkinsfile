@@ -113,7 +113,7 @@ pipeline {
         }
       }
     }
-    stage('clean up build file' {
+    stage('clean up build file') {
       when {
         beforeAgent true
         anyOf {
