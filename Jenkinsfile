@@ -44,6 +44,9 @@ pipeline {
       steps {
         cleanWs()
         checkout scm
+        echo "${currentBuild.buildCauses}" // same as currentBuild.getBuildCauses()
+        echo "${currentBuild.getBuildCauses('hudson.model.Cause$UserCause')}"
+        echo "${currentBuild.getBuildCauses('hudson.triggers.TimerTrigger$TimerTriggerCause')}"
       }
     }
     stage('Increment VERSION') {
