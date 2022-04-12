@@ -54,7 +54,7 @@ pipeline {
       when {
         beforeAgent true
         anyOf {
-          not { changeset "html/**" }
+          not { changeset "html/*" }
         }
       }
       steps {
@@ -65,7 +65,7 @@ pipeline {
       when {
         beforeAgent true
         anyOf {
-          changeset "html/**"
+          changeset "html/*"
         }
       }
       steps {
