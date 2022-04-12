@@ -50,18 +50,7 @@ pipeline {
         echo "isTriggeredByTimer = ${currentBuild.getBuildCauses('hudson.triggers.TimerTrigger$TimerTriggerCause').size()}"
       }
     }
-    stage('html in changeset 1'){
-      when {
-        beforeAgent true
-        anyOf {
-          not { changeset "html/*" }
-        }
-      }
-      steps {
-        sh 'echo "------------- html NOT in the changeset -------------------"'
-      }
-    }
-    stage('html changeset 2'){
+    stage('html changeset'){
       when {
         beforeAgent true
         anyOf {
@@ -72,18 +61,7 @@ pipeline {
         sh 'echo "------------- html in the changeset -------------------"'
       }
     }
-    stage('Jenkinsfile check changeset 1'){
-      when {
-        beforeAgent true
-        anyOf {
-          not { changeset "Jenkinsfile" }
-        }
-      }
-      steps {
-        sh 'echo "------------- Jenkinsfile NOT in the changeset -------------------"'
-      }
-    }
-    stage('Jenkinsfile check changeset 2'){
+    stage('Jenkinsfile changeset'){
       when {
         beforeAgent true
         anyOf {
@@ -94,18 +72,7 @@ pipeline {
         sh 'echo "------------- Jenkinsfile in the changeset -------------------"'
       }
     }
-    stage('VERSION check changeset 1'){
-      when {
-        beforeAgent true
-        anyOf {
-          not { changeset "VERSION" }
-        }
-      }
-      steps {
-        sh 'echo "------------- VERSION NOT in the changeset -------------------"'
-      }
-    }
-    stage('VERSION check changeset 2'){
+    stage('VERSION changeset'){
       when {
         beforeAgent true
         anyOf {
