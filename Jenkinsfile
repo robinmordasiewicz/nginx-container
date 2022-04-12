@@ -71,6 +71,17 @@ pipeline {
       }
     }
     stage('Build/Push Container') {
+      when {
+        beforeAgent true
+        anyOf {
+          //expression {
+          //  sh(returnStatus: true, script: 'git status --porcelain | grep --quiet "BUILDNEWCONTAINER.txt"') == 1
+          //}
+          expression {
+            sh(returnStatus: true, script: '[ -f BUILDNEWCONTAINER.txt ]') == 0
+          }
+        }
+      }
       steps {
         container(name: 'kaniko', shell: '/busybox/sh') {
           script {
@@ -142,6 +153,11 @@ pipeline {
             sh 'git diff --quiet && git diff --staged --quiet || git push origin main'
           }
         }
+      }
+    }
+    stage('clean up') {
+      steps {
+        sh 'rm -rf argocd'
       }
     }
   }
