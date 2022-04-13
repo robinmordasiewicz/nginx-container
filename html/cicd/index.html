@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>CI/CD with Argo &#8212; CNF 202202152222 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" href="../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Create GIT Repo" href="task1.html" />
+    <link rel="prev" title="Uninstall HELM Charts" href="../policies/task10.html" /> 
+  </head><body>
+<!--
+<div id="search-container" class="support-header">
+  <div class="slideable_content">
+    <div class="container">
+      <div id="blue-banner">
+        <span class="search-tips">
+          <a target="_blank" href="" class="internalLink">
+            Search tips
+            <span class="icon-1x-no-position icon-new-window" data-icon="new-window">
+            </span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+
+  <div class="titlebar">
+              <!-- custom breadcrumb -->
+        <div class="breadcrumb">
+            <a href="../index.html" class=breadcrumbanchor>CNF</a>
+        </div>
+
+
+        <div class="navigation-container">
+
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="../policies/task10.html" title="Uninstall HELM Charts" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="task1.html" title="Create GIT Repo" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+       </div>
+     </div>
+    
+
+        </div>
+        <!-- end custom breadcrumb -->
+      
+  </div>
+
+  <div class="titlebarbackground">
+      
+      
+  </div>
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      
+<div id="searchbox" role="search">
+  <form class="search" action="../search.html" method="get">
+    <input type="text" class="search" name="q" placeholder=" Search..." />
+    <button type="submit" class="btn btn-info navbar-btn"><i class="fa fa-search"></i></button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+      
+
+      <nav class="nav-sidebartoc">
+
+<!--
+        
+        <h5>CNF 202202152222 iTEST</h5>
+        
+        <hr>
+-->
+        <span class="nav-sidebartoc">
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lab-access/index.html">Lab Access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/index.html">Policies</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CI/CD with Argo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="task1.html">Create GIT Repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task2.html">Demonstrate CI/CD NAT44 Policy Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task3.html">Deploy CNF using ArgoCD</a></li>
+</ul>
+</li>
+</ul>
+
+        </span>
+      </nav>
+    </div>
+
+<!--
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+          <ul>
+<li><a class="reference internal" href="#">CI/CD with Argo</a></li>
+</ul>
+
+        </span>
+      </nav>
+    </div>
+-->
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <!--<button type="button" id="export-pdf" class="btn btn-link right"></button>-->
+
+<!--
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+-->
+
+
+     <div role="main">
+        
+  <section id="ci-cd-with-argo">
+<h1>CI/CD with Argo<a class="headerlink" href="#ci-cd-with-argo" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="task1.html">Create GIT Repo</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="task2.html">Demonstrate CI/CD NAT44 Policy Update</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="task3.html">Deploy CNF using ArgoCD</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+<p>Connect to the Mgmt Jumphost.
+Note! If you open a new Web Shell connection, remember to change to the right directory
+su – ubuntu
+cd ~/my-cnf</p>
+<p>To ensure the UDF configuration is “clean” following the previous sections, run:
+cd ~/my-cnf
+./99-clean-up.sh
+./00-create-namespace.sh
+./01-on-board-cnf.sh
+./02-deploy-cnf.sh</p>
+</section>
+
+
+     </div>
+
+    </article>
+  </div>
+
+</div>
+
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../_static/js/index.js"></script>
+  <script src="../_static/js/jquery.appear.js"></script>
+  <script src="../_static/js/printThis.js"></script>
+  <script src="../_static/js/bootstrap.min.js"></script>
+  <script src="../_static/js/clouddocs.js"></script>
+  <script src="../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>
