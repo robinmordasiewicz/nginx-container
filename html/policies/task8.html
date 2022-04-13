@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Deploy Firewall Policies &#8212; CNF 202202152222 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" href="../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Remove Firewall Policies" href="task9.html" />
+    <link rel="prev" title="Cleanup" href="task7.html" /> 
+  </head><body>
+<!--
+<div id="search-container" class="support-header">
+  <div class="slideable_content">
+    <div class="container">
+      <div id="blue-banner">
+        <span class="search-tips">
+          <a target="_blank" href="" class="internalLink">
+            Search tips
+            <span class="icon-1x-no-position icon-new-window" data-icon="new-window">
+            </span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+
+  <div class="titlebar">
+              <!-- custom breadcrumb -->
+        <div class="breadcrumb">
+            <a href="../index.html" class=breadcrumbanchor>CNF</a>
+              &gt; <a href="index.html" class=breadcrumbanchor>Policies</a> &raquo; <span class="breadcrumbcurrent">Deploy Firewall Policies</span>
+        </div>
+
+
+        <div class="navigation-container">
+
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="task7.html" title="Cleanup" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="task9.html" title="Remove Firewall Policies" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+       </div>
+     </div>
+    
+
+        </div>
+        <!-- end custom breadcrumb -->
+      
+  </div>
+
+  <div class="titlebarbackground">
+      
+      
+  </div>
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      
+<div id="searchbox" role="search">
+  <form class="search" action="../search.html" method="get">
+    <input type="text" class="search" name="q" placeholder=" Search..." />
+    <button type="submit" class="btn btn-info navbar-btn"><i class="fa fa-search"></i></button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+      
+
+      <nav class="nav-sidebartoc">
+
+<!--
+        
+        <h5>CNF 202202152222 iTEST</h5>
+        
+        <hr>
+-->
+        <span class="nav-sidebartoc">
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lab-access/index.html">Lab Access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Policies</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="task1.html">View NAT44</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task2.html">Apply CGN Config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task3.html">Update NAT44 Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task4.html">Control Plane CNF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task5.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task6.html">Demonstrate NAT64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task7.html">Cleanup</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Deploy Firewall Policies</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="task9.html">Remove Firewall Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task10.html">Uninstall HELM Charts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cicd/index.html">CI/CD with Argo</a></li>
+</ul>
+
+        </span>
+      </nav>
+    </div>
+
+<!--
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+          <ul>
+<li><a class="reference internal" href="#">Deploy Firewall Policies</a></li>
+</ul>
+
+        </span>
+      </nav>
+    </div>
+-->
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <!--<button type="button" id="export-pdf" class="btn btn-link right"></button>-->
+
+<!--
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+-->
+
+
+     <div role="main">
+        
+  <section id="deploy-firewall-policies">
+<h1>Deploy Firewall Policies<a class="headerlink" href="#deploy-firewall-policies" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>Apply the configuration using the commands below
+kubectl apply -f fw-policy/01-acl-hsl.yaml
+kubectl apply -f fw-policy/02-acl-log-profile.yaml
+kubectl apply -f fw-policy/03-acl-rules.yaml</p>
+<p>kubectl apply -f cgn-policy/61-natpolicy1-nat64.yaml</p>
+<p># Apply FW rules to NAT 64 Rules
+kubectl apply -f fw-policy/62-vs-securefastl4-nat64-http-with-fw.yaml
+kubectl apply -f fw-policy/63-vs-securefastl4-nat64-https-with-fw.yaml
+View the various FW policies to see how they are defined by K8s CRDs:
+cat fw-policy/03-acl-rules.yaml
+cat fw-policy/62-vs-securefastl4-nat64-http-with-fw.yaml</p>
+</section>
+
+
+     </div>
+
+    </article>
+  </div>
+
+</div>
+
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../_static/js/index.js"></script>
+  <script src="../_static/js/jquery.appear.js"></script>
+  <script src="../_static/js/printThis.js"></script>
+  <script src="../_static/js/bootstrap.min.js"></script>
+  <script src="../_static/js/clouddocs.js"></script>
+  <script src="../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>
