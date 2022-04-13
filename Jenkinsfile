@@ -104,22 +104,12 @@ pipeline {
         }
       }
     }
-    stage('Check repo for container') {
-      steps {
-        container('ubuntu') {
-          sh 'skopeo inspect docker://docker.io/robinhoodis/nginx:`cat VERSION` > /dev/null || echo "create new container: `cat VERSION`" > BUILDNEWCONTAINER.txt'
-        }
-      }
-    }
     stage('Build/Push Container') {
       when {
         beforeAgent true
-        anyOf {
-          //expression {
-          //  sh(returnStatus: true, script: 'git status --porcelain | grep --quiet "BUILDNEWCONTAINER.txt"') == 1
-          //}
-          expression {
-            sh(returnStatus: true, script: '[ -f BUILDNEWCONTAINER.txt ]') == 0
+        expression {
+          container('ubuntu') {
+            sh(returnStatus: true, script: 'skopeo inspect docker://docker.io/robinhoodis/nginx:`cat VERSION`') == 1
           }
         }
       }
@@ -127,7 +117,6 @@ pipeline {
         container(name: 'kaniko', shell: '/busybox/sh') {
           script {
             sh ''' 
-            [ ! -f BUILDNEWCONTAINER.txt ] || \
             /kaniko/executor --dockerfile=Dockerfile \
                              --context=`pwd` \
                              --destination=robinhoodis/nginx:`cat VERSION` \
@@ -138,48 +127,6 @@ pipeline {
         }
       }
     }
-    stage('clean up build file') {
-      when {
-        beforeAgent true
-        anyOf {
-          expression {
-            sh(returnStatus: true, script: '[ -f BUILDNEWCONTAINER.txt ]') == 0
-          }
-        }
-      }
-      steps {
-        sh '[ -f BUILDNEWCONTAINER.txt ] && rm BUILDNEWCONTAINER.txt'
-      }
-    }
-
-//      when {
-//        beforeAgent true
-//        anyOf {
-//          allOf {
-//            not {changeset "VERSION"}
-//            changeset "Dockerfile"
-//          }
-//          allOf {
-//            not {changeset "VERSION"}
-//            changeset "html/**"
-//          }
-//          triggeredBy cause: 'UserIdCause'
-//        }
-//      }
-//      when {
-//        beforeAgent true
-//        anyOf {
-//          // not {changeset "VERSION"}
-//          // not {changeset "Jenkinsfile"}
-//          expression {
-//            sh(returnStatus: true, script: 'git status --porcelain | grep --quiet "VERSION"') == 1
-//          }
-//          expression {
-//            sh(returnStatus: true, script: '[ -f BUILDNEWCONTAINER.txt ]') == 0
-//          }
-//        }
-//      }
-
     stage('Commit new VERSION') {
       when {
         beforeAgent true
