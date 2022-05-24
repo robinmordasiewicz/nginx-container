@@ -227,19 +227,60 @@
 <p class="sidebar-subtitle">Subtitle</p>
 <p>Sidebar TESTING - indented lines comprise
 the body of the sidebar, and are
-interpreted as body elements.</p>
+interpreted as body elements. Go to town on a horse.</p>
 </aside>
 <div class="hero-header-image docutils container">
 <p>F5 Cloud Native Functions</p>
 </div>
-<div class="youtube-hero docutils container">
+<div class="youtube-sidebar docutils container">
 <div class="video_wrapper" style="">
-<iframe allowfullscreen="true" src="https://www.youtube.com/embed/7riGQIJRJgI" style="border: 0; height: 630px; width: 800px">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/7riGQIJRJgI" style="border: 0; height: 165px; width: 295px">
 </iframe></div></div>
 <div class="hero-header-block docutils container">
-<p>Unleash the power of Kubernetes on the world</p>
+<p>Unleash the power of Kubernetes on the world and your family</p>
 </div>
 <figure class="align-default" id="id1">
+<div class="mermaid">
+            graph LR;
+
+    a([Diameter - TCP/SCTP]) --- spk[Service &lt;img src=https://img.shields.io/badge/LABEL-MESSAGE-COLOR.svg?logo=LOGO&gt; Proxy]
+    b([SIP - TCP/UDP]) --- spk
+    c([HTTP/2 - TCP]) --- spk
+
+    subgraph bigipnext [BIG-IP - NEXT]
+        spk
+    end
+        spk --- pod1(Replica Set)
+        spk --- pod2(Replica Set)
+        spk --- pod3(Replica Set)
+    subgraph k8scluster [K8S Cluster]
+        subgraph &quot;Diameter&quot;
+            pod1
+        end
+        subgraph &quot;HTTP/2&quot;
+            pod2
+        end
+        subgraph &quot;SIP&quot;
+            pod3
+        end
+        pod1 --- aspenmesh
+        pod2 --- aspenmesh
+        pod3 --- aspenmesh
+    end
+
+    classDef protocols fill:#fff1f0,stroke:#000000,stroke-width:1px,color:#000,border-style:solid;
+    classDef f5 fill:#ddd,stroke:#000000,stroke-width:1px,color:#000;
+    classDef k8s fill:#326ce5,stroke:#000000,stroke-width:1px,color:#ffffff;
+    classDef cluster fill:#fff,stroke:#bbb,stroke-width:2px,color:#326ce5;
+    class a,b,c protocols;
+    class spk,aspenmesh f5;
+    class pod1,pod2,pod3,pod4,pod5,pod6 k8s;
+    class k8scluster cluster;
+        </div><figcaption>
+<p><span class="caption-text">Service Proxy for Kubernetes</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
 <div class="mermaid">
             graph TB
    subgraph &quot;zoneA&quot;
@@ -260,10 +301,10 @@ interpreted as body elements.</p>
    class n1,n2,n3,n4,n5,n6 k8s;
    class zoneA,zoneB,zoneC cluster;
         </div><figcaption>
-<p><span class="caption-text">Figure 5: Pods in Zones</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">Figure 5: Pods in Zones</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id2">
+<figure class="align-default" id="id3">
 <div class="mermaid">
             graph LR
    UE([UE])-. 5G Radio Access .-&gt;ingress[Ingress];
@@ -280,13 +321,9 @@ interpreted as body elements.</p>
    class UE plain;
    class cluster cluster;
         </div><figcaption>
-<p><span class="caption-text">Figure 6: Ingress Controller</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">Figure 6: Ingress Controller</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<div class="youtube-sidebar docutils container">
-<div class="video_wrapper" style="">
-<iframe allowfullscreen="true" src="https://www.youtube.com/embed/7riGQIJRJgI" style="border: 0; height: 165px; width: 295px">
-</iframe></div></div>
 <div class="topic">
 <p class="topic-title">Your Topic Title</p>
 <p>Subsequent indented lines comprise
@@ -298,8 +335,8 @@ interpreted as body elements.</p>
 </div>
 <ol class="arabic">
 <li><p>Blue Items</p>
-<p>The first paragraph in an ordered list would be nice to have a gray background.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">kill</span> -9 <span class="m">86</span>
+<p>The first paragraph in an ordered list would be nice to have a gray or grey background.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">kill</span> -9
 </pre></div>
 </div>
 <div class="orderedlistitem docutils container">
