@@ -229,6 +229,15 @@
 the body of the sidebar, and are
 interpreted as body elements. Go to town on a horse.</p>
 </aside>
+<div class="topic">
+<p class="topic-title">Your Topic Title</p>
+<p>Subsequent indented lines comprise
+the body of the topic, and are
+interpreted as body elements.</p>
+</div>
+<div class="topic docutils container">
+<p>F5 Cloud Native network functions.</p>
+</div>
 <div class="hero-header-image docutils container">
 <p>F5 Cloud Native Functions</p>
 </div>
@@ -280,59 +289,6 @@ interpreted as body elements. Go to town on a horse.</p>
 <p><span class="caption-text">Service Proxy for Kubernetes</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id2">
-<div class="mermaid">
-            graph TB
-   subgraph &quot;zoneA&quot;
-       n1(Node1)
-       n2(Node2)
-   end
-   subgraph &quot;zoneB&quot;
-       n3(Node3)
-       n4(Node4)
-   end
-   subgraph &quot;zoneC&quot;
-       n5(Node5)
-       n6(Node6)
-   end
-   classDef plain fill:#ddd,stroke:#fff,stroke-width:4px,color:#000;
-   classDef k8s fill:#0E5C8D,stroke:#fff,stroke-width:4px,color:#fff;
-   classDef cluster fill:#fff,stroke:#bbb,stroke-width:2px,color:#0E5C8D;
-   class n1,n2,n3,n4,n5,n6 k8s;
-   class zoneA,zoneB,zoneC cluster;
-        </div><figcaption>
-<p><span class="caption-text">Figure 5: Pods in Zones</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-<figure class="align-default" id="id3">
-<div class="mermaid">
-            graph LR
-   UE([UE])-. 5G Radio Access .-&gt;ingress[Ingress];
-   ingress--&gt;|routing rule|service[Service];
-   subgraph cluster
-   ingress;
-   service--&gt;pod1[Pod];
-   service--&gt;pod2[Pod];
-   end
-   classDef plain fill:#ddd,stroke:#fff,stroke-width:4px,color:#000;
-   classDef k8s fill:#0E5C8D,stroke:#fff,stroke-width:4px,color:#fff;
-   classDef cluster fill:#fff,stroke:#bbb,stroke-width:2px,color:#0E5C8D;
-   class ingress,service,pod1,pod2 k8s;
-   class UE plain;
-   class cluster cluster;
-        </div><figcaption>
-<p><span class="caption-text">Figure 6: Ingress Controller</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-<div class="topic">
-<p class="topic-title">Your Topic Title</p>
-<p>Subsequent indented lines comprise
-the body of the topic, and are
-interpreted as body elements.</p>
-</div>
-<div class="topic docutils container">
-<p>F5 Cloud Native network functions.</p>
-</div>
 <ol class="arabic">
 <li><p>Blue Items</p>
 <p>The first paragraph in an ordered list would be nice to have a gray or grey background.</p>
