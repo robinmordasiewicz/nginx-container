@@ -55,6 +55,7 @@ pipeline {
         beforeAgent true
         anyOf {
           changeset "html/*"
+          triggeredBy cause: 'UserIdCause'
         }
       }
       steps {
@@ -66,6 +67,7 @@ pipeline {
         beforeAgent true
         anyOf {
           changeset "Jenkinsfile"
+          triggeredBy cause: 'UserIdCause'
         }
       }
       steps {
@@ -77,6 +79,7 @@ pipeline {
         beforeAgent true
         anyOf {
           changeset "VERSION"
+          triggeredBy cause: 'UserIdCause'
         }
       }
       steps {
@@ -91,6 +94,7 @@ pipeline {
             changeset "Dockerfile"
             changeset "html/*"
             changeset "html/**"
+            triggeredBy cause: 'UserIdCause'
             // changeset "Jenkinsfile"
             // changeset "increment-version.sh"
           }
@@ -135,6 +139,7 @@ pipeline {
             changeset "Dockerfile"
             changeset "html/*"
             changeset "html/**"
+            triggeredBy cause: 'UserIdCause'
             // changeset "Jenkinsfile"
             // changeset "increment-version.sh"
           }
