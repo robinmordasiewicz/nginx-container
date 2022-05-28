@@ -165,9 +165,9 @@ body {
   color: #FFFFFF;
   z-index: 2;
   position: relative;
-  padding-top: 5px;
+  padding-top: 150px;
   padding-left: 60px;
-  padding-bottom: 84px;
+  padding-bottom: 60px;
 }
 
 .subtopic {
