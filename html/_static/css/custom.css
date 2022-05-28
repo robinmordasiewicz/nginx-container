@@ -227,8 +227,8 @@ body {
 .video-sidebar {
   position: fixed;
   right: 0;
-  top: 255px;
-  margin-right: 30px;
+  top: 40px;
+  margin-right: 8px;
 /*  width: 250px; */
 /*  float: right; */
 /*  display: block; */
@@ -236,7 +236,6 @@ body {
 /*  background-color: #d4eaf6; */
   padding: 0px;
   border-radius: 0px;
-  box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
 }
 
 pre {
@@ -423,7 +422,7 @@ i.breadcrumb {
 
 .navigation-container {
   position: fixed;
-  right: 220px;
+  right: 335px;
   top: -6px;
   z-index: 10;
 }
