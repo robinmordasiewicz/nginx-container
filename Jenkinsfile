@@ -86,17 +86,7 @@ pipeline {
     stage('Increment VERSION') {
       when {
         beforeAgent true
-//        allOf {
-//          anyOf {
-//            changeset "Dockerfile"
-//            changeset "html/*"
-//            changeset "html/**"
-//            // changeset "Jenkinsfile"
-//            // changeset "increment-version.sh"
-//          }
         not { changeset "VERSION" }
-//          // triggeredBy cause: 'UserIdCause'
-//        }
       }
       steps {
         container('ubuntu') {
