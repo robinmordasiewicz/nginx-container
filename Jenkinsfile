@@ -96,7 +96,7 @@ pipeline {
 //          }
         not { changeset "VERSION" }
 //          // triggeredBy cause: 'UserIdCause'
-        }
+//        }
       }
       steps {
         container('ubuntu') {
