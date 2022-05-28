@@ -7,7 +7,7 @@
   background-color: black;
   color: #FFFFFF;
   font-family: "Courier Prime", monospace;
- /* font: 1.3rem Inconsolata, monospace; */
+  /* font: 1.3rem Inconsolata, monospace; */
   /* font-family: Menlo,Monaco,Consolas,Courier New,monospace; */
   font-size: 12px;
   line-height: 1.0;
@@ -163,8 +163,10 @@ body {
   font-size: 22px;
   font-style: italic;
   color: #FFFFFF;
-  padding-top: 100px;
-  padding-left: 80px;
+  z-index: 1;
+  position: relative;
+  padding-top: 5px;
+  padding-left: 60px;
   padding-bottom: 84px;
 }
 
