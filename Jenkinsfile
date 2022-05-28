@@ -120,17 +120,7 @@ pipeline {
     stage('Commit new VERSION') {
       when {
         beforeAgent true
-        allOf {
-          anyOf {
-            changeset "Dockerfile"
-            changeset "html/*"
-            changeset "html/**"
-            // changeset "Jenkinsfile"
-            // changeset "increment-version.sh"
-          }
-          not { changeset "VERSION" }
-          // triggeredBy cause: 'UserIdCause'
-        }
+        not { changeset "VERSION" }
       }
       steps {
         sh 'git config user.email "nginx@example.com"'
