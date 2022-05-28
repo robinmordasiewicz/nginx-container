@@ -41,9 +41,9 @@ pipeline {
       steps {
         cleanWs()
         checkout scm
-        echo "${currentBuild.buildCauses}"
-        echo "${currentBuild.getBuildCauses('hudson.model.Cause$UserCause')}"
-        echo "${currentBuild.getBuildCauses('hudson.triggers.TimerTrigger$TimerTriggerCause')}"
+        echo "currentBuild.buildCauses = ${currentBuild.buildCauses}"
+        echo "UserCause = ${currentBuild.getBuildCauses('hudson.model.Cause$UserCause')}"
+        echo "timerTriggerCause = ${currentBuild.getBuildCauses('hudson.triggers.TimerTrigger$TimerTriggerCause')}"
         echo "isTriggeredByIndexing = ${currentBuild.getBuildCauses('jenkins.branch.BranchIndexingCause').size()}"
         echo "isTriggeredByCommit = ${currentBuild.getBuildCauses('com.cloudbees.jenkins.GitHubPushCause').size()}"
         echo "isTriggeredByUser = ${currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause').size()}"
